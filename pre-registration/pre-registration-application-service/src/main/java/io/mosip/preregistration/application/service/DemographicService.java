@@ -381,7 +381,7 @@ public class DemographicService implements DemographicServiceIntf {
 	}
 
 	private String getUnrafId(JSONObject jsonObject, String key) {
-		JSONObject identity = jsonObject.get("identity");
+		JSONObject identity = (JSONObject)jsonObject.get("identity");
 		if (identity == null) {
 			return null;
 		}

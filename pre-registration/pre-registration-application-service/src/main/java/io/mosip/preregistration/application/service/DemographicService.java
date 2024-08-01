@@ -333,6 +333,10 @@ public class DemographicService implements DemographicServiceIntf {
 			log.info("sessionId", "idType", "id",
 					"Pre ID generation start time : " + DateUtils.getUTCCurrentDateTimeString());
 			String preId = serviceUtil.generateId();
+			String unrafId = getUnrafId(demographicRequest.getDemographicDetails(), "unrafId");
+			if (unrafId != null) {
+				preId = unrafId;
+			}
 			log.info("sessionId", "idType", "id",
 					"Pre ID generation end time : " + DateUtils.getUTCCurrentDateTimeString());
 
@@ -376,7 +380,15 @@ public class DemographicService implements DemographicServiceIntf {
 
 	}
 
-	
+	private String getUnrafId(JSONObject jsonObject, String key) {
+		JSONObject identity = jsonObject.get("identity");
+		if (identity == null) {
+			return null;
+		}
+		String unrafId = identity.get(key);
+		return unrafId;
+	}
+
 	/*
 	 * This method is used to update the demographic data by PreId
 	 * 

@@ -385,7 +385,7 @@ public class DemographicService implements DemographicServiceIntf {
 		if (identity == null) {
 			return null;
 		}
-		String unrafId = identity.get(key).toString();
+		String unrafId = ((JSONObject)identity.get(key)).toString();
 		return unrafId;
 	}
 

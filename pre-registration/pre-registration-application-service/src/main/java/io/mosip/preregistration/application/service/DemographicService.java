@@ -384,7 +384,7 @@ public class DemographicService implements DemographicServiceIntf {
 	}
 
 	private String getUnrafId(JSONObject jsonObject) {
-		return ((HashMap) jsonObject.get(DemographicRequestCodes.IDENTITY.getCode())).get("unrafId");
+		return (((HashMap) jsonObject.get(DemographicRequestCodes.IDENTITY.getCode())).get("unrafId")).toString();
 	}
 
 	/*

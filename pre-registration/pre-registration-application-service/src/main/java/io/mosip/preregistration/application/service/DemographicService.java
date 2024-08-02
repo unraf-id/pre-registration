@@ -335,6 +335,8 @@ public class DemographicService implements DemographicServiceIntf {
 					"Pre ID generation start time : " + DateUtils.getUTCCurrentDateTimeString());
 			String preId = serviceUtil.generateId();
 			String unrafId = getUnrafId(demographicRequest.getDemographicDetails(), "unrafId");
+			log.info("sessionId", "idType", "id",
+					"UnrafId : " + unrafId);
 			if (unrafId != null) {
 				preId = unrafId;
 			}
@@ -387,6 +389,8 @@ public class DemographicService implements DemographicServiceIntf {
 			return null;
 		}
 		JSONObject unrafId = getJSONObject(jsonObject, key);
+		log.info("sessionId", "idType", "id",
+				"UnrafId : " + unrafId);
 		if (unrafId == null) {
 			return null;
 		}

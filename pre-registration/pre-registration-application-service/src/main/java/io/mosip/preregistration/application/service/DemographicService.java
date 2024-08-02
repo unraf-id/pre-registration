@@ -381,12 +381,22 @@ public class DemographicService implements DemographicServiceIntf {
 	}
 
 	private String getUnrafId(JSONObject jsonObject, String key) {
-		JSONObject identity = (JSONObject)jsonObject.get("identity");
+		JSONObject identity = getJSONObject(jsonObject, "identity");
 		if (identity == null) {
 			return null;
 		}
-		String unrafId = ((JSONObject)identity.get(key)).toString();
-		return unrafId;
+		JSONObject unrafId = getJSONObject(jsonObject, key);
+		if (unrafId == null) {
+			return null;
+		}
+		return unrafId.toString();
+	}
+
+	private JSONObject getJSONObject(JSONObject jsonObject, String key) {
+		if(jsonObject == null)
+			return null;
+		LinkedHashMap identity = (LinkedHashMap) jsonObject.get(key);
+		return identity != null ? new JSONObject(identity) : null;
 	}
 
 	/*

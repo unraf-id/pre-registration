@@ -345,7 +345,7 @@ public class DemographicService implements DemographicServiceIntf {
 
 			DemographicEntity demographicEntity = demographicRepository
 					.save(serviceUtil.prepareDemographicEntityForCreate(demographicRequest,
-							StatusCodes.APPLICATION_INCOMPLETE.getCode(), authUserDetails().getUserId(), preId));
+							StatusCodes.PENDING_APPOINTMENT.getCode(), authUserDetails().getUserId(), preId));
 			DemographicCreateResponseDTO res = serviceUtil.setterForCreatePreRegistration(demographicEntity,
 					demographicRequest.getDemographicDetails());
 

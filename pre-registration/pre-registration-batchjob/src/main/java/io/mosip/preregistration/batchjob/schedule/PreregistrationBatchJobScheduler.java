@@ -59,7 +59,7 @@ public class PreregistrationBatchJobScheduler {
 	@Autowired
 	private Job purgeExpiredSlotsJob;
 
-	@Scheduled(cron = "${preregistration.job.schedule.cron.consumedStatusJob}")
+//	@Scheduled(cron = "${preregistration.job.schedule.cron.consumedStatusJob}")
 	public void consumedStatusScheduler() {
 
 		JobParameters jobParam = new JobParametersBuilder().addLong("updateStatusTime", System.currentTimeMillis())
